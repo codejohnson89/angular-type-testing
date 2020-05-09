@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { lorem } from 'faker';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,21 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Typing-Game';
+  completed = true;
+  enteredText = '';
+
+  sentence = lorem.sentence();
+
+  textInput(e: string) {
+    this.enteredText = e;
+  }
+
+  colorText(a: string,b: string) {
+    if(!b) {
+      return 'pending'
+    }
+    return a === b ? 'correct' : 'incorrect';
+  }
+
+
 }
